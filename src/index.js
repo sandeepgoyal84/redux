@@ -7,19 +7,16 @@ import thunk from "redux-thunk";
 
 import "./index.css";
 import App from "./App";
-import authReducer from "./store/reducers/auth"
+import reducer from "./reducer";
 import * as serviceWorker from "./serviceWorker";
 
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer = combineReducers({
-  auth: authReducer
-});
 
 const store = createStore(
-  rootReducer,
+  reducer,
   composeEnhancers(applyMiddleware(thunk))
 );
 
